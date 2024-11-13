@@ -1,0 +1,76 @@
+
+
+.esportes-lista {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    margin: 0 100px;
+}
+.esportes-lista h2 {
+    margin-bottom: 40px;
+    margin: 40px 120px;
+}
+.esportes-lista ul {
+    display: flex;
+    gap: 40px;
+    padding: 0 20px 20px 20px;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: auto; /*adiciona scroll a uma lista*/
+}
+.esportes-lista li {
+    min-width: 280px;
+}
+.esportes-lista a {
+    display: block;
+}
+.esportes-lista img {
+    margin-bottom: 16px;
+    border-radius: 4px;
+    max-height: 400px;
+}
+.esportes-lista h3 {
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+}
+.esportes-lista h3::before {
+    content: " ";
+    background-color: var(--cor-p2);
+    height: 8px;
+    width: 18px;
+    margin-right: 8px;
+    display: inline-block;
+    transition: width 0.2s; /*adiciona animação na scrollagem*/
+}
+.esportes-lista a:hover h3::before {
+    width: 24px;
+}
+.esportes-lista li span {
+    padding-left: 20px;
+}
+
+@media (max-width: 1200px){
+    .esportes-lista {
+        margin: 0 60px;
+    }
+    .esportes-lista h2 {
+        margin: 20px 60px;
+    }
+    .esportes-lista ul {
+        gap: 20px;
+    }
+}
+@media (max-width: 800px){
+    .esportes-lista {
+        padding-bottom: 60px;
+        margin: 0px 30px;
+        padding-top: 0px;
+    }
+    .esportes-lista h2 {
+        margin: 20px 0px;
+    }
+    .esportes-lista ul {
+        gap: 20px;
+    }
+}
