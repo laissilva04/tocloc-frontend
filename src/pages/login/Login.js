@@ -174,10 +174,10 @@ function Login() {
 
                     <div style={{ backgroundColor: '#4a4a4a', color: '#b3b3b3' }} className="px-8 py-4 text-center">
                         <span>Não possui uma conta? </span>
-                        <Link to="/registerUser"
+                        <Link to="/register"
                             style={{ color: '#2f6f39' }}
                             className="font-medium"
-                            href="/registerUser.html"
+                            href="/register.html"
                         >
                             Cadastrar
                         </Link>

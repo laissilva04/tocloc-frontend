@@ -6,8 +6,7 @@ import './theme/tipografia.css'
 
 import Home from './pages/home/Home';
 import Login from './pages/login/Login';
-import RegisterUser from './pages/registerUser/RegisterUser';
-import RegisterAdmin from './pages/registerAdmin/RegisterAdmin';
+import RegisterUser from './pages/register/Register';
 import ErrorPage from './pages/home/ErrorPage';
 
 import{createBrowserRouter,  RouterProvider} from 'react-router-dom';
@@ -23,13 +22,9 @@ const router = createBrowserRouter([
     element: <Login/>
   },
   {
-    path: "/registerUser",
+    path: "/register",
     element: <RegisterUser/>
   },
-  {
-    path: "/registerAdmin",
-    element: <RegisterAdmin/>
-  }
 ]);
 
 
