@@ -168,7 +168,7 @@ function RegisterUser() {
                   }}
                   className="appearance-none relative block w-full px-3 py-3 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                   required
-                  autoComplete="password"
+                  autoComplete="senha"
                   type="password"
                   value={senha}
                   onChange={(e) => setSenha(e.target.value)}
@@ -185,7 +185,7 @@ function RegisterUser() {
                   }}
                   className="appearance-none relative block w-full px-3 py-3 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                   required
-                  autoComplete="password"
+                  autoComplete="senha"
                   type="password"
                   value={senhaConfirmacao}
                   onChange={(e) => setSenhaConfirmacao(e.target.value)}
