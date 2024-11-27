@@ -1,10 +1,9 @@
 import Header from '../../components/Header/Header';
 import Introduction from '../../components/Introduction/Introduction';
-import Sports from '../../components/Sports/Sports';
-
+import Highlights from '../../components/Highlights/Highlights';
 import { Outlet } from 'react-router-dom';
-
 import './Home.css';
+
 
 function Home() {
 
@@ -13,7 +12,7 @@ function Home() {
       <Header/>
       <Outlet/>
       <Introduction/>
-      <Sports/>
+      <Highlights/>
     </div>  
   );
 }
