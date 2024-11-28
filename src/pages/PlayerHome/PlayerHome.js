@@ -12,8 +12,8 @@ function PlayerHome() {
             {/* Section com conteúdo do "Bem-vindo ao Tocloc!" */}
             <section className="p-5">
                 <div className="text-center mb-2">
-                    <h2 className="text-4xl font-bold text-green-700 mb-2 mt-10">Bem-vindo ao Tocloc!</h2>
-                    <p className="text-gray-600">Conecte-se com os melhores espaços esportivos e faça sua reserva.</p>
+                    <h2 className="text-4xl font-bold text-green-700 mb-2 mt-10 font-1-xl">Bem-vindo ao Tocloc!</h2>
+                    <p className="text-gray-600 font-2-l-b">Conecte-se com os melhores espaços esportivos e faça sua reserva.</p>
                 </div>
                 <Sports />
             </section>
