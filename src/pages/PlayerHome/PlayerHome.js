@@ -6,13 +6,13 @@ import { Link } from "react-router-dom";
 function PlayerHome() {
     return (
         <div className="bg-gray-50">
-            
+
             <header className="bg-black text-white py-4 flex justify-center">
                 <div className="w-[95%] flex justify-center">
-                <h1 className="text-center font-1-xl mb-3">Tocloc. <span class="cor-p1">Tocou, locou, jogou!</span> </h1>
+                    <h1 className="text-center font-1-xl mb-3">Tocloc. <span class="cor-p1">Tocou, locou, jogou!</span> </h1>
                 </div>
                 <Link to="/">
-                <button className="mt-4"> <img src={logout} alt="" /></button>
+                    <button className="mt-4"> <img src={logout} alt="" /></button>
                 </Link>
             </header>
 

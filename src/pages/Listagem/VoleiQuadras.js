@@ -37,12 +37,20 @@ function FutebolQuadras() {
         fetchEsportes();
     }, []);
 
-    if (isLoading) {
-        return <Loader />;
-    }
 
     // Função ListagemQuadras
     const ListagemQuadras = (esportesFiltrados) => {
+
+        if(isLoading) {
+            return (<Loader />);
+        }
+
+        if(esportesFiltrados.length === 0) {
+            return (
+                <div className="text-center font-1-m-b cor-p1 py-20">Nenhuma quadra encontrada.</div>
+            )
+        }
+        
         return (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
                 
@@ -90,11 +98,7 @@ function FutebolQuadras() {
                 />
             </div>
 
-            {
-                esportesFiltrados.length === 0 ?
-                    <div className="text-center font-1-m-b cor-p1 py-20">Nenhuma quadra encontrada.</div>
-                    : ListagemQuadras(esportesFiltrados)
-            }
+            {ListagemQuadras(esportesFiltrados)}
 
         </div>
     );
