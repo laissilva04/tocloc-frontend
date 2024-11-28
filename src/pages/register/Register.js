@@ -32,7 +32,7 @@ function RegisterUser() {
 
     try {
       // Envia a requisição para a API de cadastro
-      const response = await axios.post("http://127.0.0.1:3001/api/users", {
+      const response = await axios.post("http://localhost:3001/api/users", {
         nome,
         email,
         senha,
