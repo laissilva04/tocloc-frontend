@@ -41,10 +41,6 @@ function FutebolQuadras() {
         return <Loader />;
     }
 
-    if(esportesFiltrados.length === 0)  {
-        return <div className="text-center">Nenhuma quadra encontrada.</div>
-    }  
-
     // Função ListagemQuadras
     const ListagemQuadras = (esportesFiltrados) => {
         return (
