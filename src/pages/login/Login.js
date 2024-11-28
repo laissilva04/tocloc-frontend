@@ -24,7 +24,7 @@ function Login() {
             if (response.status === 200) {
                 localStorage.setItem('token', response.data.token);
 
-                window.location.href = '/';
+                window.location.href = '/PlayerHome';
             } else {
                 setErrorMessage('Credenciais inválidas. Tente novamente.');
             }
@@ -158,7 +158,7 @@ function Login() {
                     <div style={{ backgroundColor: '#4a4a4a', color: '#b3b3b3' }} className="px-8 py-4 text-center">
                         <span>Não possui uma conta? </span>
                         <Link to="/register"
-                            style={{ color: '#2f6f39' }}
+                            style={{ color: '#ffffff' }}
                             className="font-medium"
                             href="/register.html"
                         >

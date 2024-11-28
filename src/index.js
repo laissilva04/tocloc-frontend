@@ -8,6 +8,7 @@ import Home from './pages/home/Home';
 import Login from './pages/login/Login';
 import RegisterUser from './pages/register/Register';
 import FutebolQuadras from './pages/Listagem/FutebolQuadras'
+import PlayerHome from './pages/PlayerHome/PlayerHome';
 import ErrorPage from './pages/home/ErrorPage';
 import VoleiQuadras from './pages/Listagem/VoleiQuadras';
 import TenisQuadras from './pages/Listagem/TenisQuadras';
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
   {
     path: "/TenisQuadras",
     element: <TenisQuadras/>
+  },
+  {
+    path: "/playerHome",
+    element: <PlayerHome/>
   },
 ]);
 
