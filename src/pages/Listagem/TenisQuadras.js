@@ -50,7 +50,7 @@ function FutebolQuadras() {
                     <div key={esporte.id} className="bg-white shadow rounded p-4">
                         <div className="mb-4">
                             <img
-                                src={esporte.imagemUrl}
+                                src={esporte.imagem}
                                 alt={esporte.nome}
                                 className="w-full h-48 object-cover rounded"
                             />
