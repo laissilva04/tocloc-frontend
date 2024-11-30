@@ -20,7 +20,7 @@ function FutebolQuadras() {
     useEffect(() => {
         const fetchEsportes = async () => {
             try {
-                const response = await axios.get("http://localhost:3001/api/sports-places/esportes");
+                const response = await axios.get("http://localhost:3001/api/sports-places");
                 setEsportes(response.data);
                 const esportesData = response.data;
 
