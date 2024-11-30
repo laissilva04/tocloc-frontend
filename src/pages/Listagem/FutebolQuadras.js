@@ -2,8 +2,8 @@
 
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
 import Loader from "../home/Loader";
+import ModalReserva from "../../components/ModalReserva/ModalReserva";
 
 
 function FutebolQuadras() {
@@ -49,7 +49,7 @@ function FutebolQuadras() {
                 <div className="text-center font-1-m-b cor-p1 py-20">Nenhuma quadra encontrada.</div>
             )
         }
-        
+
         return (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
                 {esportesFiltrados.map(esporte => (
@@ -68,10 +68,8 @@ function FutebolQuadras() {
                             <span className="text-sm">Jogadores: {esporte.quant_jogadores}</span>
                         </div>
                         <div className="mt-4 text-center">
-                            <button
-                                className="bg-[#2f6f39] font-1-s text-white text-sm py-2 px-4 rounded hover:bg-[#26562d] transition-colors"
-                            >
-                                Reservar
+                            <button>
+                               <ModalReserva/>
                             </button>
                         </div>
                     </div>

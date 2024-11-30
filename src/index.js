@@ -12,7 +12,7 @@ import PlayerHome from './pages/PlayerHome/PlayerHome';
 import ErrorPage from './pages/home/ErrorPage';
 import VoleiQuadras from './pages/Listagem/VoleiQuadras';
 import TenisQuadras from './pages/Listagem/TenisQuadras';
-
+import ModalReserva from './components/ModalReserva/ModalReserva';
 import{createBrowserRouter,  RouterProvider} from 'react-router-dom';
 
 const router = createBrowserRouter([
@@ -44,6 +44,10 @@ const router = createBrowserRouter([
   {
     path: "/playerHome",
     element: <PlayerHome/>
+  },
+  {
+    path: "/ModalReserva",
+    element: <ModalReserva/>
   },
 ]);
 
