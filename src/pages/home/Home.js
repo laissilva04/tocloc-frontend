@@ -12,7 +12,7 @@ function Home() {
       <Header/>
       <Outlet/>
       <Introduction/>
-      <Highlights/>
+      <Highlights/> 
     </div>  
   );
 }
