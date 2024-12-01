@@ -13,6 +13,8 @@ import ErrorPage from './pages/home/ErrorPage';
 import VoleiQuadras from './pages/Listagem/VoleiQuadras';
 import TenisQuadras from './pages/Listagem/TenisQuadras';
 import ModalReserva from './components/ModalReserva/ModalReserva';
+import AdminDashboard from './pages/AdminHome/gerenciamento';
+import LocalRegistration from './pages/cadastrarLocal/cadastrarLocal';
 import{createBrowserRouter,  RouterProvider} from 'react-router-dom';
 
 const router = createBrowserRouter([
@@ -48,6 +50,14 @@ const router = createBrowserRouter([
   {
     path: "/ModalReserva",
     element: <ModalReserva/>
+  },
+  {
+    path: "/gerenciamento",
+    element: <AdminDashboard/>
+  },
+  {
+    path: "/RegistrarLocal",
+    element: <LocalRegistration/>
   },
 ]);
 
