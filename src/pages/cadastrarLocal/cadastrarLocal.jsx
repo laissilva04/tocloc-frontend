@@ -39,32 +39,40 @@ const LocalRegistration = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError('');
-        setSuccess(''); // Se você implementar mensagens de sucesso
-      
+        setSuccess('');
+    
         try {
-          const placeReponse = await axios.post('http://localhost:3001/api/sports-places', place);
-          console.log(placeReponse.data); // Veja o que exatamente está sendo retornado
-        const newVenueId = placeReponse.data.place?.id;
-           // Use os dados retornados pelo back-end
-      
-          await Promise.all(availabilities.map(async (availability) => {
-            const response = await axios.post('http://localhost:3001/api/availabilities', {
-              ...availability,
-              id_local_esportivo: newVenueId,
-            });
-            console.log(response.data.message); // Exibe a mensagem de sucesso no console (ou utilize conforme necessário)
-          }));
-          
-      
-          // Exibe mensagem de sucesso
-          setSuccess(placeReponse.data.message || 'Local cadastrado com sucesso!');
-          setTimeout(() => navigate('/gerenciamento'), 3000);
+            const placeReponse = await axios.post('http://localhost:3001/api/sports-places', place);
+            console.log(placeReponse.data); // Verifique o que está sendo retornado do backend
+    
+            // Verifique se o campo 'place' e o campo 'id' estão presentes
+            const newVenueId = placeReponse.data?.place?.id || null;
+    
+            if (!newVenueId) {
+                throw new Error('Falha ao obter o ID do local criado.');
+            }
+    
+            // Adicionar as disponibilidades com o ID do novo local
+            await Promise.all(availabilities.map(async (availability) => {
+                const response = await axios.post('http://localhost:3001/api/availabilities', {
+                    ...availability,
+                    id_local_esportivo: newVenueId,
+                });
+                console.log(response.data); // Verifique a resposta de cada disponibilidade
+            }));
+    
+            // Se o local foi criado com sucesso, exibe a mensagem de sucesso
+            setSuccess('Local cadastrado com sucesso!');
+            setTimeout(() => navigate('/gerenciamento'), 3000); // Redireciona após 3 segundos
+    
         } catch (error) {
-          // Mostra mensagem de erro, se fornecida pelo back-end
-          setError(error.response?.data?.error || 'Erro ao cadastrar o local.');
-          console.error('Erro ao cadastrar:', error);
+            // Trata o erro de maneira adequada
+            setError(error.response?.data?.error || error.message || 'Erro desconhecido ao cadastrar o local.');
+            console.error('Erro ao cadastrar:', error);
         }
-      };
+    };
+    
+      
   
     return (
         <>
