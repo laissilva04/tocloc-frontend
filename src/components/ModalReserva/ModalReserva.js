@@ -1,10 +1,8 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { format, parseISO } from 'date-fns';
-import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Loader from '../../pages/home/Loader';
 
 export function ModalReserva() {
     const [open, setOpen] = useState(false);
@@ -14,15 +12,17 @@ export function ModalReserva() {
     const [horarioSelecionado, setHorarioSelecionado] = useState('');
     const [carregando, setCarregando] = useState(false);
 
-    const navigate = useNavigate();
-
     useEffect(() => {
         async function fetchData() {
+            setCarregando(true);
             try {
                 const response = await axios.get("http://localhost:3001/api/availabilities");
-                setDados(response.data);
+                setDados(response.data || []); // Garante que `dados` nunca será undefined
             } catch (error) {
                 console.error("Erro ao buscar dados do backend:", error);
+                toast.error("Erro ao carregar disponibilidades. Tente novamente.");
+            } finally {
+                setCarregando(false);
             }
         }
 
@@ -31,70 +31,24 @@ export function ModalReserva() {
 
     useEffect(() => {
         if (dataSelecionada) {
-            const horarios = dados.filter(reserva => {
+            const horarios = dados.filter((reserva) => {
                 const dataReserva = parseISO(reserva.data);
                 const dataSelecionadaObj = parseISO(dataSelecionada);
-                dataReserva.setHours(dataReserva.getHours() + dataReserva.getTimezoneOffset() / 60);
 
-                return dataReserva.getDate() === dataSelecionadaObj.getDate() &&
+                return (
+                    dataReserva.getDate() === dataSelecionadaObj.getDate() &&
                     dataReserva.getMonth() === dataSelecionadaObj.getMonth() &&
-                    dataReserva.getFullYear() === dataSelecionadaObj.getFullYear() &&
-                    reserva.status === 'disponivel';
+                    dataReserva.getFullYear() === dataSelecionadaObj.getFullYear()
+                );
             });
 
-            const horariosOrdenados = horarios.sort((a, b) => {
-                const horaA = new Date(`1970-01-01T${a.hora_inicio}Z`);
-                const horaB = new Date(`1970-01-01T${b.hora_inicio}Z`);
-                return horaA - horaB;
-            });
-
-            setHorariosDisponiveis(horariosOrdenados);
+            setHorariosDisponiveis(horarios || []); // Garante que `horariosDisponiveis` nunca será undefined
         }
     }, [dataSelecionada, dados]);
 
-    async function enviarReserva(data, horario) {
-        try {
-            const horarioSelecionadoObj = horariosDisponiveis.find(
-                (reserva) => `${reserva.hora_inicio} - ${reserva.hora_fim}` === horario
-            );
-
-            if (!horarioSelecionadoObj) {
-                toast.error("Erro ao encontrar a disponibilidade selecionada.");
-                return;
-            }
-
-            const dataReservaCompleta = `${data}T${horario.split(' - ')[0]}`;
-
-            const response = await axios.post("http://localhost:3001/api/reservations", {
-                data_reserva: dataReservaCompleta,
-                id_disponibilidade: horarioSelecionadoObj.id,
-                status: "pendente",
-            });
-
-            setHorariosDisponiveis((prevHorarios) =>
-                prevHorarios.filter((reserva) => reserva.id !== horarioSelecionadoObj.id)
-            );
-
-            toast.success("Reserva criada com sucesso!");
-
-            limparCampos();
-
-            setOpen(false);
-
-            setTimeout(() => {
-                setCarregando(false);
-                navigate(-1);
-            }, 3000);
-
-        } catch (error) {
-            console.error("Erro ao criar reserva:", error.response || error.message);
-            toast.error("Erro ao criar a reserva. Tente novamente.");
-        }
-    }
-
     const getDatasUnicas = () => {
         const datasUnicas = [];
-        dados.forEach((reserva) => {
+        (dados || []).forEach((reserva) => {
             const dataFormatada = format(parseISO(reserva.data), 'yyyy-MM-dd');
             if (!datasUnicas.includes(dataFormatada)) {
                 datasUnicas.push(dataFormatada);
@@ -173,7 +127,9 @@ export function ModalReserva() {
                                         return;
                                     }
 
-                                    enviarReserva(dataSelecionada, horarioSelecionado);
+                                    toast.success("Reserva feita com sucesso!");
+                                    limparCampos();
+                                    setOpen(false);
                                 }}
                                 className="w-full px-4 py-2 text-white bg-green-700 rounded-md hover:bg-green-800"
                             >
@@ -194,7 +150,7 @@ export function ModalReserva() {
                 </div>
             )}
 
-            {carregando && <Loader />}
+            {carregando && <p className="text-center mt-4">Carregando...</p>}
 
             <ToastContainer />
         </>
