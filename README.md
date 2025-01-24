@@ -67,4 +67,6 @@ O objetivo principal é conectar jogadores e donos de espaços, promovendo agili
    
 ## 👥 Contribuidores
 @Laissilva04
-...
+@Liviacavalcanter
+
+ Link para o repositório do back-end 👉: https://github.com/laissilva04/tocloc-backend
