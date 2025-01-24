@@ -5,8 +5,8 @@
 
 <div align="center">
 
-  <img src="assets/chrome_DUUREggWD4.png" alt="Tela inicial do TocLoc" width="500px">
-  <img src="assets/chrome_KF7KWekSSC.png" alt="Tela de reserva do TocLoc" width="500px">
+  <img src="assets/chrome_DUUREggWD4.png" alt="Tela inicial do TocLoc" width="400px">
+  <img src="assets/chrome_KF7KWekSSC.png" alt="Tela de reserva do TocLoc" width="400px">
 </div>
 
 ---
