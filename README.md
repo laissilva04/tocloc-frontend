@@ -1,16 +1,70 @@
-# Getting Started with Create React App
+# TocLoc  
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Status do Projeto](https://img.shields.io/badge/Status-Em%20Revisão-blue)
 
-## Available Scripts
 
-In the project directory, you can run:
+<div align="center">
 
-### `npm start`
+  <img src="" alt="Tela inicial do TocLoc" width="500px">
+  <img src="" alt="Tela de reserva do TocLoc" width="500px">
+</div>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 📝 Sobre  
 
+A **TocLoc** é uma plataforma para facilitar a reserva de locais esportivos, como quadras de beach tennis e campos de futebol society.  
+O objetivo principal é conectar jogadores e donos de espaços, promovendo agilidade e eficiência na reserva e organização de jogos.  
+
+---
+
+## 🛠 Tecnologias  
+
+### Front-End  
+- **React.js**: Framework para criação de interfaces dinâmicas.  
+- **Tailwind CSS**: Framework CSS para estilização rápida e responsiva.  
+- **CSS e HTML**: Estrutura básica e personalização.  
+- **React Router**: Gerenciamento de rotas no front-end.  
+- **Axios**: Biblioteca para requisições HTTP.  
+
+### Back-End  
+- **Node.js**: Ambiente de execução para JavaScript no servidor.  
+- **Express.js**: Framework para construção da API.  
+- **JWT (JSON Web Token)**: Autenticação segura.  
+
+### Banco de Dados  
+- **Supabase**: Solução para gerenciamento de banco de dados com suporte a autenticação e armazenamento.  
+
+---
+
+## ✨ Funcionalidades  
+
+- **CRUD Completo**: Gerenciamento de reservas, usuários e locais esportivos.  
+- **Arquitetura Multicamadas**: Separação de responsabilidades entre camadas de apresentação, lógica de negócios e dados.  
+
+---
+
+## 🚀 Como executar o projeto  
+
+### Pré-requisitos  
+- Node.js instalado  
+- Gerenciador de pacotes (npm ou yarn)  
+
+### Instalação  
+
+1. Clone o repositório:  
+   ```bash
+   git clone https://github.com/seu-usuario/TocLoc.git
+2. Acesse o diretório do projeto::  
+   ```bash
+   cd TocLoc
+3. Instale as dependências do back-end e do front-end::  
+   ```bash
+   npm install
+4. Inicie o servidor:  
+   ```bash
+   npm start
+   
+## 👥 Contribuidores
+@Laissilva04
+Outros colaboradores...
