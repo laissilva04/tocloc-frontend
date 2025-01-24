@@ -54,7 +54,7 @@ O objetivo principal é conectar jogadores e donos de espaços, promovendo agili
 
 1. Clone o repositório:  
    ```bash
-   git clone https://github.com/seu-usuario/TocLoc.git
+   git clone https://github.com/laissilva04/tocloc-frontend/
 2. Acesse o diretório do projeto::  
    ```bash
    cd TocLoc
